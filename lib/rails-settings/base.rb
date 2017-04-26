@@ -8,7 +8,7 @@ module RailsSettings
                  :dependent  => :delete_all,
                  :class_name => self.setting_object_class_name
 
-        def settings(var)
+        def settings(var = nil)
           var = :generic if var.nil?
           raise ArgumentError unless var.is_a?(Symbol)
           raise ArgumentError.new("Unknown key: #{var}") unless self.class.default_settings[var]
