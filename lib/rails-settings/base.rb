@@ -9,6 +9,7 @@ module RailsSettings
                  :class_name => self.setting_object_class_name
 
         def settings(var)
+          var = :generic if var.nil?
           raise ArgumentError unless var.is_a?(Symbol)
           raise ArgumentError.new("Unknown key: #{var}") unless self.class.default_settings[var]
 
